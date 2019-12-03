@@ -19,11 +19,19 @@ module.exports = {
                     'css-loader'
                 ],
             },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                  {
+                    loader: 'file-loader'
+                  },
+                ],
+            },
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "Webpack Output",
+            title: "Hello Webpack",
         }),
         new MiniCssExtractPlugin(),
         new CleanWebpackPlugin(),
