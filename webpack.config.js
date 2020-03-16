@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: '[name].bundle.js',
+        filename: '[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -33,7 +33,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Hello Webpack",
         }),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[hash].css',
+        }),
         new CleanWebpackPlugin(),
     ],
     mode: 'development',
